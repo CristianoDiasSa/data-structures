@@ -18,7 +18,7 @@ public class Airport implements Comparable<Airport>{
         this.airportWaitingIndex = airportWaitingIndex;
     }
 
-    // We would like to compare two food products using the healthIndex
+    // We would like to compare airports based on waiting index
     public int compareTo(Airport o) {
         if(this.airportWaitingIndex == o.airportWaitingIndex)
         {return 0;
@@ -36,7 +36,7 @@ public class Airport implements Comparable<Airport>{
         return "Airport = "+name+"\nLocation = " + location + "\nWaiting Index = "+ airportWaitingIndex +" ";
     }
 
-    //The accessor methods give us access to instance variables...
+    //The access methods give us access to instance variables...
     public String getName()
     { return name;
     }

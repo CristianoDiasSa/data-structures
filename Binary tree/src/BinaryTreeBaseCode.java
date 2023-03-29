@@ -20,9 +20,8 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
     //we should like place the object by examining the waiting time index...
 
     //-------------------------------------------------------------------------------------------------------
+
     //Insert
-
-
     // This is the method the user will call, so it has to be public
     public void insert(T elem)
     {   // Firstly we check if the element we are trying to add will be the root or not,
@@ -31,7 +30,7 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
         { root = new BTNode<>(elem);
         }
         else
-        // In case the element that we are trying to add, will not the the root (The tree is not empty),
+        // In case the tree is not empty the element will not the root,
         // We will be calling another method of same name, but that will take 2 arguments, the root and the
         // new element
         { insertNode(elem, root);
@@ -39,40 +38,37 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
     }
 
     // This next method will be called every time we are trying to add an element when the tree is not empty
-    // Differenty from the very first method, it takes two arguments instead of one, as it needs to compare the
+    // Differently from the very first method, it takes two arguments instead of one, as it needs to compare the
     // objects in order to know if it will be added on the left or right side of the root.
 
     // This is an intern method that is not available to the user, and will be called inside the public method,
     // therefore it is private.
     private void insertNode(T elem, BTNode<T> current){
         //The big decision is to run the comparison of the new element
-        // Against the value of the waiting time index of the current node
+        //Against the value of the waiting time index of the current node
         if(elem.compareTo(current.element) == -1)
         {   // If the waiting index is smaller, we will add it to the left side of the root,
             // but firstly, we have to check if we already have an element on the left side,
             // if we do not have one, the new element will become the left element of the current one
-            if(current.left == null)
-            {   current.left = new BTNode<>(elem);
-
+            if(current.left == null){
+                current.left = new BTNode<>(elem);
             // If the left side is not empty, we have to recursively call this method until it does, so we
             //can add this new element on  the left side
-            } else
-            {   insertNode(elem, current.left);
+            } else{
+                insertNode(elem, current.left);
             }
 
             //If the element that we are trying to add has a higher waiting index than the root,
             // we will start looking for somewhere to place it on the right side of the current element,
             // it will take the same steps as above, check if the right element is null, if it is,
             // will add the element there, if it is not, will recursively call the method until it does!
-        }  else
-        {
+        }  else{
             //Right element is empty, so just add the new element
             if(current.right == null)
             { current.right = new BTNode<>(elem);
-            } else
-
+            } else{
             // The right element is not empty, recursively call the method until it is empty and simple add it!
-            { insertNode(elem, current.right);
+             insertNode(elem, current.right);
             }
         }}
 
@@ -80,8 +76,8 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
     //Size
 
     // This is the method the user will call, so it has to be public
-    public int size()
-    {   return size(root);
+    public int size(){
+        return size(root);
     }
 
     // This is an intern method that is not available to the user, and will be called inside the public method,
@@ -91,10 +87,10 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
         // we need to define the base case to stop the search,
         // that will be when the current node is empty, and if it
         // is the case, return 0 to the user, as the tree is empty
-        if(current == null)
-        { return 0;
-        } else
-        { // Search left and right and add 1 because there is an element in the tree
+        if(current == null){
+            return 0;
+        } else{
+          // Search left and right and add 1 because there is an element in the tree
           // If the current element is not null, then we keep traversing our tree until it does
           // and sum the size of both sides and add 1 because it is not empty, so we have the value
           // on the root as well
@@ -105,8 +101,6 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
 
     //-------------------------------------------------------------------------------------------------------
     //Find Worst
-
-
     // This is the method the user will call, so it has to be public
     public T findWorst()
     {
@@ -118,8 +112,6 @@ public class BinaryTreeBaseCode<T extends Comparable<T>> implements BinaryTree<T
         {   return (T)findWorst(root);
         }
     }
-
-
 
     // This is an intern method that is not available to the user, and will be called inside the public method,
     // therefore it is private.
