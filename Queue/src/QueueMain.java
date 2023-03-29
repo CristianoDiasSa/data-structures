@@ -10,7 +10,7 @@ public class QueueMain {
         Tags closing = new Tags("</>");
 
         // Text with matching number or opening and closing tags
-         String text = "<></>";
+        String text = "<></>";
 
         // text with more closing tags than opening tags
         // String text = "<></></>";

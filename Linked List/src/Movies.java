@@ -2,7 +2,7 @@ public class Movies {
     public String movieTitle, genre, description;
     public int duration, rating;
 
-    public Movies(String movieTitle, String genre, String description, int duration, int rating) {
+    public Movies(String movieTitle, String description, String genre, int duration, int rating) {
         this.movieTitle = movieTitle;
         this.genre = genre;
         this.description = description;

@@ -21,7 +21,7 @@ public class Tags{
         return tag;
     }
 
-    //The accessor methods give us access to instance variables...
+    //The access methods give us access to instance variables...
     public String getTag()
     { return tag;
     }
